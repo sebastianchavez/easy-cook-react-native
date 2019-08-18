@@ -7,31 +7,33 @@
  */
 
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  View
-} from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
+
+
 import Login from './src/pages/login.js'
-import { view, person_outline, lock_outline } from './icons'
-import { login, title } from './imgs'
+import Home from './src/pages/home.js'
+
+
+const RoutStack = createStackNavigator(
+  {
+    Login: Login,
+    Home: Home
+  },
+  {
+    initialRouteName: 'Login'
+  }
+)
+
+const AppContainer = createAppContainer(RoutStack)
+
+
 class App extends Component {
+  
   render(){
     return (
-     <View style={styles.backgroundContainer}>
-        <Login iconView={view} iconPerson={person_outline} iconLock={lock_outline} bgImage={login} title={title}/>
-      </View>    
+      <AppContainer />   
     )
   }
 };
-
-const styles = StyleSheet.create({
-  backgroundContainer: {
-    flex: 1,
-    width: null,
-    height: null,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})
 
 export default App;

@@ -1,0 +1,193 @@
+[
+    {
+        "steps": [
+            {
+                "avatarName": "1561086261268.jpg",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1561086261268.jpg?alt=media&token=096e48e8-49cd-480f-9541-084cd86a8143",
+                "preparation": "Tessasdasdsa"
+            },
+            {
+                "preparation": "Test2 asdsad",
+                "avatarName": "1561086295864.jpg",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1561086295864.jpg?alt=media&token=56588b19-8a9f-42d3-bbd0-1b53b0744a22"
+            }
+        ],
+        "ingredients": [
+            {
+                "ingredient": "Vahd"
+            }
+        ],
+        "_id": "5d0c4971b2b92a0017f7ea54",
+        "email": "seba.chavez21@gmail.com",
+        "name": "Hahdhajso",
+        "type": "step",
+        "category": "Habd",
+        "qualification": 0,
+        "create": "2019-06-21T03:05:21.486Z",
+        "__v": 0
+    },
+    {
+        "steps": [
+            {
+                "preparation": "Bajsja",
+                "avatarName": "1561075698598.jpg",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1561075698598.jpg?alt=media&token=2794d468-63b3-4f70-a2eb-09b7c2d3ebfa"
+            },
+            {
+                "preparation": "Vajsuss",
+                "avatarName": "1561075739953.jpg",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1561075739953.jpg?alt=media&token=c9344dd2-01ad-4ba8-beda-ae207620f389"
+            }
+        ],
+        "ingredients": [],
+        "_id": "5d0c2026ce30bb001766069a",
+        "name": "Vajdhs",
+        "type": "step",
+        "category": "Vajshd",
+        "qualification": 0,
+        "create": "2019-06-21T00:09:10.725Z",
+        "__v": 0
+    },
+    {
+        "steps": [
+            {
+                "avatarName": "1561053516524.jpg",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1561053516524.jpg?alt=media&token=a6c15e40-76f9-4284-8a3c-bcdd3f759830",
+                "preparation": "Paso 1"
+            },
+            {
+                "avatarName": "1561053566104.jpg",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1561053566104.jpg?alt=media&token=de0314df-f671-40d2-98d4-5ebad72b21f7",
+                "preparation": "Paso 2"
+            },
+            {
+                "preparation": "Paso 3",
+                "avatarName": "1561053597800.jpg",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1561053597800.jpg?alt=media&token=73157fb7-1ae8-443a-aa85-060c26fdae05"
+            }
+        ],
+        "ingredients": [],
+        "_id": "5d0bc9aaea67280017aff703",
+        "name": "Test",
+        "type": "step",
+        "category": "Test",
+        "qualification": 0,
+        "create": "2019-06-20T18:00:10.546Z",
+        "__v": 0,
+        "email": "seba.chavez21@gmail.com"
+    },
+    {
+        "steps": [],
+        "ingredients": [
+            {
+                "ingredient": "Test"
+            }
+        ],
+        "_id": "5d084ffcbff5d70017fea5c6",
+        "email": "seba.chavez21@gmail.com",
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1560825833492.jpg?alt=media&token=4cc9df5a-046d-49be-89c7-5dae061e67d7",
+        "avatarName": "1560825833492.jpg",
+        "avatarUser": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Fprofile%2Fseba.chavez21%40gmail.com.jpg?alt=media&token=0e1ab1e6-d8b8-4351-a33c-2ec1385f1b1c",
+        "name": "Test",
+        "preparation": "Test",
+        "category": "Test",
+        "qualification": 0,
+        "create": "2019-06-18T02:44:12.700Z",
+        "__v": 0
+    },
+    {
+        "steps": [],
+        "ingredients": [
+            {
+                "ingredient": "Bajdha"
+            }
+        ],
+        "_id": "5d05aa0c4dfdf50017913d8d",
+        "email": "seba.chavez21@gmail.com",
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1560652285014.jpg?alt=media&token=87efe58d-5a0b-43c8-97de-8da06ced5955",
+        "avatarName": "1560652285014.jpg",
+        "avatarUser": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Fprofile%2Fseba.chavez21%40gmail.com.jpg?alt=media&token=0e1ab1e6-d8b8-4351-a33c-2ec1385f1b1c",
+        "name": "Ris",
+        "preparation": "Jabzha",
+        "category": "Jajdja",
+        "qualification": 0,
+        "create": "2019-06-16T02:31:40.588Z",
+        "__v": 0
+    },
+    {
+        "steps": [],
+        "ingredients": [
+            {
+                "ingredient": "Bahxhsh"
+            }
+        ],
+        "_id": "5d058458c96ba90017641d57",
+        "email": "seba.chavez21@gmail.com",
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1560642631947.jpg?alt=media&token=f511175f-a152-42c9-a34a-783c4aaa4ee0",
+        "avatarName": "1560642631947.jpg",
+        "avatarUser": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Fprofile%2Fseba.chavez21%40gmail.com.jpg?alt=media&token=c965dfb1-278d-41da-95e0-95604f14b15a",
+        "name": "Hshxhs",
+        "preparation": "Bajxjs",
+        "category": "Bajxjs",
+        "qualification": 0,
+        "create": "2019-06-15T23:50:48.756Z",
+        "__v": 0
+    },
+    {
+        "steps": [],
+        "ingredients": [
+            {
+                "ingredient": "Bahda"
+            },
+            {
+                "ingredient": "Ahdjs"
+            }
+        ],
+        "_id": "5d03293f6e119d0017f18068",
+        "email": "seba.chavez21@gmail.com",
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1560488236531.jpg?alt=media&token=dd3271ad-b648-4a3c-a961-943765bbd940",
+        "avatarName": "1560488236531.jpg",
+        "avatarUser": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Fprofile%2Fseba.chavez21%40gmail.com.jpg?alt=media&token=c965dfb1-278d-41da-95e0-95604f14b15a",
+        "name": "Rris",
+        "preparation": "Bahdbsbs",
+        "category": "Bdjaidbs",
+        "qualification": 0,
+        "create": "2019-06-14T04:57:35.320Z",
+        "__v": 0
+    },
+    {
+        "steps": [],
+        "ingredients": [
+            {
+                "ingredient": "Baidis"
+            }
+        ],
+        "_id": "5d01d2aa3b029c00170b8c90",
+        "email": "seba.chavez21@gmail.com",
+        "avatarUser": null,
+        "name": "Havdus",
+        "preparation": "Hxbajx",
+        "category": "Bajxbd",
+        "qualification": 0,
+        "create": "2019-06-13T04:35:54.291Z",
+        "__v": 0
+    },
+    {
+        "steps": [],
+        "ingredients": [
+            {
+                "ingredient": "test"
+            }
+        ],
+        "_id": "5d01a899597adc00178f3827",
+        "email": "seba.chavez21@gmail.com",
+        "name": "test",
+        "preparation": "test",
+        "category": "test",
+        "qualification": 0,
+        "create": "2019-06-13T01:36:25.078Z",
+        "__v": 0,
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/easycook-b453d.appspot.com/o/pictures%2Ffoods%2F1560400576671.jpg?alt=media&token=b091672f-c1ac-48b4-8454-1b070d5e03de",
+        "avatarName": "1560400576671.jpg"
+    }
+]
