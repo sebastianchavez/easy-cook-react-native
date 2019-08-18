@@ -8,18 +8,17 @@
 
 import React, {Component} from 'react';
 import {
-  ImageBackground,
   StyleSheet,
   View
 } from 'react-native';
 import Login from './src/pages/login.js'
-import bgImage from './src/assets/img/fondo.jpg'
-import IconView from './src/assets/icon/view_icon.png'
+import { view, person_outline, lock_outline } from './icons'
+import { login, title } from './imgs'
 class App extends Component {
   render(){
     return (
-     <View source={bgImage} style={styles.backgroundContainer}>
-        <Login iconView={IconView}/>
+     <View style={styles.backgroundContainer}>
+        <Login iconView={view} iconPerson={person_outline} iconLock={lock_outline} bgImage={login} title={title}/>
       </View>    
     )
   }
