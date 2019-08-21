@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
+  Modal,
   ToastAndroid
 } from 'react-native';
 
@@ -75,6 +76,7 @@ class Login extends Component {
   };
 
 
+  
   login = () => {
     if(this.state.valid == true){
       if(this.state.emailValidate == false || this.state.email == ''){
@@ -91,7 +93,28 @@ class Login extends Component {
         })
         return
       } else {
-        this.props.navigation.navigate('Home')
+        let user = {email: this.state.email, password: this.state.password}
+        axios.put(apiUrl, user  )
+        .then(resp => {
+          this.props.navigation.navigate('Home')
+        }).catch(err => {
+          // static alert('Error','Queo la caga');
+          // alert(JSON.stringify(err))
+          Alert.alert(
+            'Alert Title',
+            'My Alert Msg',
+            [
+              {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+              {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+              },
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ],
+            {cancelable: false},
+          );          
+        })
       }
     }
   }
@@ -138,6 +161,10 @@ class Login extends Component {
         })
       }
     }
+  }
+
+  goToRegister = () => {
+    this.props.navigation.navigate('Register')
   }
 
 

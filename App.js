@@ -12,12 +12,14 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import Login from './src/pages/login.js'
 import Home from './src/pages/home.js'
+import Register from './src/pages/register.js'
 
 
 const RoutStack = createStackNavigator(
   {
     Login: Login,
-    Home: Home
+    Home: Home,
+    Register: Register
   },
   {
     initialRouteName: 'Login'
