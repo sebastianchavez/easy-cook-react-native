@@ -8,9 +8,8 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  Modal,
-  ToastAndroi,
-  Alert
+  Alert,
+  ToastAndroid
 } from 'react-native';
 
 // dependencias
@@ -85,6 +84,7 @@ class Login extends Component {
           msg: 'Email inválido',
           visible: true
         })
+        return
       } 
      if(this.state.passwordValidate == false || this.state.password == ''){
         this.setState({
@@ -93,14 +93,13 @@ class Login extends Component {
         })
         return
       } else {
-        // console.warn(apiUrl)
-        let email = this.state.email
         const user = {
-          email: email.toLowerCase(),
+          typeAccount: 'email',
+          email: this.state.email,
           password: this.state.password
         }
         // console.warn(JSON.stringify(user))
-        fetch(apiUrl,{
+        fetch( `${apiUrl}users`,{
           method: 'PUT',
           body: JSON.stringify(user),
           headers:{
@@ -108,49 +107,47 @@ class Login extends Component {
             'Content-Type':'application/json'
         }
       }).then(resp => {
-        this.setState({
-          visible: true,
-          msg: 'Usuario logueado con exito'
-        })
-        this.props.navigation.navigate('Home')
-      }).catch(err => {
-        Alert.alert('Error', 'Problemas con el servidor',[{text:'OK', onPress: () => console.log('OK')}],{cancelable: true})
-        return
+        switch(resp.status){
+          case 200:
+              this.setState({
+                visible: true,
+                msg: 'Usuario logueado con exito'
+              })
+              this.props.navigation.navigate('Home')
+            break
+          case 402:
+              this.setState({
+                visible: true,
+                msg: 'Tipo de usuario inválido'
+              })
+            break
+          case 403:
+              this.setState({
+                visible: true,
+                msg: 'Contraseña incorrecta'
+              })
+            break
+          case 404:
+              this.setState({
+                visible: true,
+                msg: 'Usuario inválido'
+              })
+            break
+          case 500:
+              this.setState({
+                visible: true,
+                msg: 'Error interno del servidor'
+              })
+            break
+        }
+        
+      }).then(resp => {
+        
       })
-        // axios.put(apiUrl + 'users', {
-        //   typeAccount: 'email',
-        //   email: this.state.email,
-        //   password: this.state.password
-        // })
-        // // console.warn(response)
-        // .then(resp => {
-        //   this.setState({
-        //     visible: true,
-        //     msg: 'Usuario logueado con éxito'
-        //   })
-        //   this.props.navigation.navigate('Home')
-        // }).catch(err => {
-        //   // static alert('Error','Queo la caga');
-        //   Alert.alert(
-        //     'Error',
-        //     `Ha ocurrido un problema al ingresar, Codigo de error: ${this.handleError(err)}`,
-        //     [
-        //     ],
-        //     {cancelable: true},
-        //     ) ;       
-            
-        //   })
+      .catch(err => {
+        Alert.alert('Error', 'Problemas con el servidor',[{text:'OK', onPress: () => console.log('OK')}],{cancelable: true})
+      })
       }
-    }
-  }
-
-  handleError = (err) => {
-    if(err.response){
-      return  'Problemas en la respuesta: ' + err.response.status 
-    } else if (err.request) {
-      return  'Problemas en la consulta'
-    } else {
-      return 'Error: ' + err.message
     }
   }
 
@@ -183,7 +180,6 @@ class Login extends Component {
           emailValidate: true,
           email: text
         })
-        return;
       }
     } else if (type == 'password') {
       if(text.length < 6){
@@ -220,6 +216,7 @@ class Login extends Component {
               placeholderTextColor={'rgba(255, 255, 255, 0.7)'}
               underlineColorAndroid='transparent'
               onChangeText={(text) => this.validate(text, 'email')}
+              name='email'
             />
           </View>
           <View style={styles.inputContainer}>
@@ -244,6 +241,12 @@ class Login extends Component {
             onPress={this.login}
           >
             <Text style={styles.text}>Ingresar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnRegister}
+            // onPress={() => this.props.navigation.navigate('Home')}
+            onPress={this.goToRegister}
+          >
+            <Text style={styles.text}>Registrar</Text>
           </TouchableOpacity>
           <Toast style={styles.toast} visible={this.state.visible}  message={this.state.msg} />
         </ImageBackground>
@@ -316,6 +319,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#2e6da4',
     justifyContent: 'center',
     marginTop: 20
+  },
+  btnRegister:{
+    width: WIDTH - 55,
+    height: 45,
+    borderRadius: 45,
+    backgroundColor: '#2e6da4',
+    justifyContent: 'center',
+    marginTop: 10
   },
   text: {
     color: '#fff',
