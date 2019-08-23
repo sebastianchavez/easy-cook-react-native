@@ -9,7 +9,8 @@ import {
   Image,
   ImageBackground,
   Modal,
-  ToastAndroid
+  ToastAndroi,
+  Alert
 } from 'react-native';
 
 // dependencias
@@ -84,7 +85,6 @@ class Login extends Component {
           msg: 'Email inválido',
           visible: true
         })
-        return
       } 
      if(this.state.passwordValidate == false || this.state.password == ''){
         this.setState({
@@ -93,29 +93,64 @@ class Login extends Component {
         })
         return
       } else {
-        let user = {email: this.state.email, password: this.state.password}
-        axios.put(apiUrl, user  )
-        .then(resp => {
-          this.props.navigation.navigate('Home')
-        }).catch(err => {
-          // static alert('Error','Queo la caga');
-          // alert(JSON.stringify(err))
-          Alert.alert(
-            'Alert Title',
-            'My Alert Msg',
-            [
-              {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-              {
-                text: 'Cancel',
-                onPress: () => console.log('Cancel Pressed'),
-                style: 'cancel',
-              },
-              {text: 'OK', onPress: () => console.log('OK Pressed')},
-            ],
-            {cancelable: false},
-          );          
+        // console.warn(apiUrl)
+        let email = this.state.email
+        const user = {
+          email: email.toLowerCase(),
+          password: this.state.password
+        }
+        // console.warn(JSON.stringify(user))
+        fetch(apiUrl,{
+          method: 'PUT',
+          body: JSON.stringify(user),
+          headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        }
+      }).then(resp => {
+        this.setState({
+          visible: true,
+          msg: 'Usuario logueado con exito'
         })
+        this.props.navigation.navigate('Home')
+      }).catch(err => {
+        Alert.alert('Error', 'Problemas con el servidor',[{text:'OK', onPress: () => console.log('OK')}],{cancelable: true})
+        return
+      })
+        // axios.put(apiUrl + 'users', {
+        //   typeAccount: 'email',
+        //   email: this.state.email,
+        //   password: this.state.password
+        // })
+        // // console.warn(response)
+        // .then(resp => {
+        //   this.setState({
+        //     visible: true,
+        //     msg: 'Usuario logueado con éxito'
+        //   })
+        //   this.props.navigation.navigate('Home')
+        // }).catch(err => {
+        //   // static alert('Error','Queo la caga');
+        //   Alert.alert(
+        //     'Error',
+        //     `Ha ocurrido un problema al ingresar, Codigo de error: ${this.handleError(err)}`,
+        //     [
+        //     ],
+        //     {cancelable: true},
+        //     ) ;       
+            
+        //   })
       }
+    }
+  }
+
+  handleError = (err) => {
+    if(err.response){
+      return  'Problemas en la respuesta: ' + err.response.status 
+    } else if (err.request) {
+      return  'Problemas en la consulta'
+    } else {
+      return 'Error: ' + err.message
     }
   }
 
@@ -146,8 +181,9 @@ class Login extends Component {
       } else {
         this.setState({
           emailValidate: true,
-          email: text.toLowwerCase
+          email: text
         })
+        return;
       }
     } else if (type == 'password') {
       if(text.length < 6){
@@ -184,7 +220,6 @@ class Login extends Component {
               placeholderTextColor={'rgba(255, 255, 255, 0.7)'}
               underlineColorAndroid='transparent'
               onChangeText={(text) => this.validate(text, 'email')}
-              name='email'
             />
           </View>
           <View style={styles.inputContainer}>

@@ -1,3 +1,3 @@
 module.exports = {
-    apiUrl: 'http://localhost:4000/api/'
+    apiUrl: 'http://192.168.0.4:4000/api/'
 }
