@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  Modal,
+  Alert,
   ToastAndroid
 } from 'react-native';
 
@@ -93,28 +93,60 @@ class Login extends Component {
         })
         return
       } else {
-        let user = {email: this.state.email, password: this.state.password}
-        axios.put(apiUrl, user  )
-        .then(resp => {
-          this.props.navigation.navigate('Home')
-        }).catch(err => {
-          // static alert('Error','Queo la caga');
-          // alert(JSON.stringify(err))
-          Alert.alert(
-            'Alert Title',
-            'My Alert Msg',
-            [
-              {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-              {
-                text: 'Cancel',
-                onPress: () => console.log('Cancel Pressed'),
-                style: 'cancel',
-              },
-              {text: 'OK', onPress: () => console.log('OK Pressed')},
-            ],
-            {cancelable: false},
-          );          
-        })
+        const user = {
+          typeAccount: 'email',
+          email: this.state.email,
+          password: this.state.password
+        }
+        // console.warn(JSON.stringify(user))
+        fetch( `${apiUrl}users`,{
+          method: 'PUT',
+          body: JSON.stringify(user),
+          headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        }
+      }).then(resp => {
+        switch(resp.status){
+          case 200:
+              this.setState({
+                visible: true,
+                msg: 'Usuario logueado con exito'
+              })
+              this.props.navigation.navigate('Home')
+            break
+          case 402:
+              this.setState({
+                visible: true,
+                msg: 'Tipo de usuario inválido'
+              })
+            break
+          case 403:
+              this.setState({
+                visible: true,
+                msg: 'Contraseña incorrecta'
+              })
+            break
+          case 404:
+              this.setState({
+                visible: true,
+                msg: 'Usuario inválido'
+              })
+            break
+          case 500:
+              this.setState({
+                visible: true,
+                msg: 'Error interno del servidor'
+              })
+            break
+        }
+        
+      }).then(resp => {
+        
+      })
+      .catch(err => {
+        Alert.alert('Error', 'Problemas con el servidor',[{text:'OK', onPress: () => console.log('OK')}],{cancelable: true})
+      })
       }
     }
   }
@@ -146,7 +178,7 @@ class Login extends Component {
       } else {
         this.setState({
           emailValidate: true,
-          email: text.toLowwerCase
+          email: text
         })
       }
     } else if (type == 'password') {
@@ -209,6 +241,12 @@ class Login extends Component {
             onPress={this.login}
           >
             <Text style={styles.text}>Ingresar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnRegister}
+            // onPress={() => this.props.navigation.navigate('Home')}
+            onPress={this.goToRegister}
+          >
+            <Text style={styles.text}>Registrar</Text>
           </TouchableOpacity>
           <Toast style={styles.toast} visible={this.state.visible}  message={this.state.msg} />
         </ImageBackground>
@@ -281,6 +319,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#2e6da4',
     justifyContent: 'center',
     marginTop: 20
+  },
+  btnRegister:{
+    width: WIDTH - 55,
+    height: 45,
+    borderRadius: 45,
+    backgroundColor: '#2e6da4',
+    justifyContent: 'center',
+    marginTop: 10
   },
   text: {
     color: '#fff',
